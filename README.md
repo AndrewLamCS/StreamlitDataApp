@@ -1,5 +1,7 @@
 # StreamlitDataApp
 
+![StreamlitDataGIF](https://github.com/AndrewLamCS/StreamlitDataApp/blob/main/Kapture%202024-11-13%20at%2016.33.07.gif)
+
 This is a simple **Streamlit** app that demonstrates the use of different machine learning classifiers (KNN, SVM, and Random Forest) on various datasets, including Iris, Breast Cancer, and Wine datasets from `sklearn`. The app also includes a **PCA (Principal Component Analysis)** visualization of the dataset to show the reduction of dimensions for the chosen dataset.
 
 To run this app, you'll need the following Python packages installed: `streamlit`, `scikit-learn`, `numpy`, and `matplotlib`. You can install these dependencies using `pip`:
