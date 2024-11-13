@@ -9,6 +9,7 @@ To run this app, you'll need the following Python packages installed: `streamlit
 ```bash
 pip install streamlit scikit-learn numpy matplotlib
 ```
+
 ## How to Run the App
 Clone the repository to your local machine:
 
@@ -17,29 +18,29 @@ Clone the repository to your local machine:
 git clone https://github.com/AndrewLamCS/StreamlitDataApp.git
 cd StreamlitDataApp
 ```
+
 ## Create and activate a virtual environment (optional but recommended):
-
 ```bash
-
 python3 -m venv .venv
 source .venv/bin/activate  # On Windows, use .venv\Scripts\activate
 
 ```
+
 ## Install the required dependencies:
-```
-bash
+
+```bash
 pip install -r requirements.txt
 
 ```
+
 ## Run the Streamlit app:
-```
-bash
+```bash
 streamlit run main.py
 This will open the app in your default web browser. You can interact with the app by selecting different datasets, classifiers, and adjusting the classifier parameters through the sidebar.
 ```
+
 ## Project Structure
-```
-bash
+```bash
 StreamlitDataApp/
 │
 ├── main.py               # The main Streamlit app file
