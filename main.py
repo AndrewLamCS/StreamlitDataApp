@@ -2,6 +2,14 @@ import streamlit as st
 from sklearn import datasets
 import numpy as np
 
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.svm import SVC
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score
+from sklearn.decomposition import PCA
+import matplotlib.pyplot as plt
+
 st.title('Streamlit App Demo')
 st.write("""Explore different features of Streamlit""")
 
@@ -39,3 +47,30 @@ def add_parameter_ui(clf_name):
     return params
 
 params = add_parameter_ui(classifier_name)
+
+def get_classfier(clf_name, params):
+    if clf_name == "KNN":
+        clf = KNeighborsClassifier(n_neighbors=params["K"])
+    elif clf_name == "SVM":
+        clf = SVC(C=params["C"])
+    else:        
+        clf = RandomForestClassifier(n_estimators=params["n_estimators"], 
+                                     max_depth=params["max_depth"], 
+                                     random_state=1234)
+    return clf
+
+clf = get_classfier(classifier_name, params)
+
+#Classification
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1234)
+
+clf.fit(X_train, y_train)
+y_pred = clf.predict(X_test)
+
+acc = accuracy_score(y_test, y_pred)
+st.write(f"Classifier: {classifier_name}")
+st.write(f"Accuracy: {acc}")
+
+#Plot
+pca = PCA(2)
+X_projected = pca.fit_transform(X)
